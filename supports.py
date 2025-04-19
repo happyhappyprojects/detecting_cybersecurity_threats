@@ -12,6 +12,7 @@ def secs_to_mins_secs(secs, round_secs=2):
 
 class CyberDataset(Dataset):
     def __init__(self, cvs_path, num_labels):
+        super().__init__()
         df = pd.read_csv(cvs_path)
         df = self.preprocess_df(df)
         self.categorical_col_indexes = self.get_categorical_column_indices(df.iloc[:,:-1])
